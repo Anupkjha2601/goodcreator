@@ -1,0 +1,239 @@
+/* Overall container */
+.login-content {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f7f9;
+}
+/* Left section (50%) */
+.login-left {
+  flex: 1;
+  padding: 40px; /* Adjust padding if needed */
+  background-color: #ddecfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(96, 91, 99, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* SVG Image Styling - Positioned on the right */
+.login-left img.login-background-image {
+  position: absolute;
+  right: 0; /* Align to the right edge */
+  top: 60%; /* Align to the top edge */
+  width: 40%; /* Take up 40% of the left section */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 70%; /* Restrict width to 40% */
+  z-index: 1;
+  opacity: 0.85;
+  pointer-events: none;
+  }
+
+/* Logo Styling */
+.login-left img.login-logo {
+  width: 30%;
+  margin-bottom: 10px; /* Space below logo */
+}
+
+/* Heading Styling */
+.login-left h2 {
+  font-size: 2rem;
+  margin-bottom: 10px; /* Space below heading */
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Text and list Styling */
+.login-left p {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  margin-bottom: 15px; /* Reduced margin to pull it up */
+}
+
+.login-left ul {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  padding-left: 1.5rem;
+  margin-bottom: 0; /* Removed margin to push items up */
+}
+
+.login-left ul li {
+  margin-bottom: 0.75rem; /* Spacing between list items */
+  color: #444;
+}
+.login-left ul li i {
+  color: #94a5bb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .login-left {
+    padding: 30px;
+  }
+
+  .login-left h2 {
+    font-size: 1.625rem;
+    margin-bottom: 10px; /* Space below heading */
+  }
+
+  .login-left img.login-logo {
+    width: 80px;
+  }
+}
+
+/* Right section (50%) */
+.login-right {
+  flex: 1;
+  padding: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form container */
+.login-form-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Input fields */
+.input-group input[type="email"],
+.input-group input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 15px 10px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+  border-bottom: 2px solid black
+}
+
+
+/* Continue button */
+button[type="submit"] {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(47, 46, 46);
+}
+/* Google login button */
+.google-login-btn {
+  width: 100%; /* Full width for better appearance */
+  font-size: 16px;
+  padding: 15px;
+  margin-top: 15px;
+  color: black; /* Text color */
+  background-color: white; /* Button background color */
+  border: 2px solid #ccc; /* Border around the button */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.google-login-btn img {
+  margin-right: 10px;
+}
+
+.google-login-btn:hover {
+  background-color: rgb(159, 154, 154); /* Slight background color change on hover */
+}
+
+.google-login-btn:active {
+  background-color: #e0e0e0; /* More pronounced background change on click */
+}
+
+.divider {
+  display: flex;
+  align-items: center;  /* Vertically center */
+  justify-content: center;  /* Horizontally center */
+  text-align: center;
+  margin: 20px 0;  /* Add some vertical space */
+  color: #888;
+  font-size: 14px;
+  position: relative;  /* For the line to be positioned properly */
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;  /* Allow the line to grow */
+  border-bottom: 1px solid #ddd;  /* Style the line */
+  margin: 0 15px;  /* Spacing between the text and line */
+}
+
+/* Register link */
+a.register-link {
+  color: #2980b9; /* Set the color of the link to blue */
+  text-decoration: none; /* Remove underline from the link */
+}
+
+a.register-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Checkbox and Forgot Password section */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.remember-forgot label {
+  font-size: 16px;
+}
+
+.remember-forgot a {
+  font-size: 16px;
+  color: #2980b9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.remember-forgot a:hover {
+  color: #1c669a;
+  text-decoration: underline;
+}
+
+/* Overall responsive adjustments */
+@media (max-width: 1024px) {
+  .login-right {
+    padding: 30px;
+  }
+
+  .login-form-container {
+    padding: 30px;
+  }
+}
+
+
+
+

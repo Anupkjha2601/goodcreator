@@ -1,0 +1,248 @@
+/* Overall container */
+.complete-register-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f7f9;
+}
+
+/* Left section (50%) */
+.left-section {
+  flex: 1;
+  padding: 40px;
+  background-color: #ddecfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(96, 91, 99, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo Styling */
+.complete-register-logo {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+/* Heading Styling */
+.left-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Text and list Styling */
+.left-section p {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  margin-bottom: 15px;
+}
+
+.left-section ul {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.left-section ul li {
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.left-section ul li i {
+  color: #94a5bb;
+}
+
+/* SVG Image Styling - Positioned on the right */
+.complete-register-background-image {
+  position: absolute;
+  right: 0;
+  top: 60%;
+  width: 40%;
+  height: auto;
+  max-width: 70%;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Right section (50%) */
+.right-section {
+  flex: 1;
+  padding: 50px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form container */
+.right-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Input fields */
+.input-group input[type="email"],
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 15px 10px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input[type="email"]:focus,
+.input-group input[type="text"]:focus,
+.input-group input[type="tel"]:focus,
+.input-group input[type="password"]:focus {
+  border-bottom: 2px solid black;
+}
+
+/* Continue button */
+button[type="submit"] {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(47, 46, 46);
+}
+.phone-number-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Adjusts space between groups */
+}
+
+.phone-number-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.country-code {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.validate-btn {
+  margin-top: 10px; /* Adds space between input and button */
+  width: 100%; /* Ensure button width is 100% */
+}
+
+
+.input-group input[type="password"] {
+  margin-bottom: 5px; /* Adjust as needed */
+}
+
+.phone-number-group input {
+  flex: 1; /* Take up remaining space */
+  padding: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+  color: black;
+  outline: none;
+}
+
+.phone-number-group input::placeholder {
+  color: #aaa;
+}
+
+/* Password requirements */
+.password-requirements {
+  font-size: 0.875rem;
+  color: #5d6d7e;
+  margin-bottom: 20px;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+/* Register link */
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .left-section {
+    padding: 30px;
+  }
+
+  .left-section h2 {
+    font-size: 1.625rem;
+  }
+
+  .complete-register-logo {
+    width: 80px;
+  }
+
+  .right-section {
+    padding: 30px;
+  }
+
+  form {
+    padding: 30px;
+  }
+}
+/* Existing styles... */
+
+.password-group {
+  display: flex;
+  align-items: center;
+}
+
+.password-group input {
+  flex: 1;
+}
+
+.show-password-btn {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
