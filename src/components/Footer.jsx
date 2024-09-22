@@ -90,10 +90,10 @@ export default function Footer({ mode, next }) {
               </div>
             </form>
             <div className="mt-6">
-              <Link to={'/blogs'} className='my-2'>Blogs</Link>
-              <p className='my-2'>Case Studies</p>
-              <p className='my-2'>Referel Program</p>
-              <p className='my-2'>ER Calculator</p>
+              <Link to={'/blogs'} className='my-2 font-semibold'>Blogs</Link>
+              <p className='my-2 font-semibold'>Case Studies</p>
+              <p className='my-2 font-semibold'>Referel Program</p>
+              <p className='my-2 font-semibold'>ER Calculator</p>
             </div>
           </div>
         </div>

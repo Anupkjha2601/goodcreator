@@ -5,6 +5,8 @@ import WorkHero from '../components/WorkHero'
 import Footer from '../components/Footer'
 import Gallery from '../components/Gallery'
 import GoToTopButton from '../components/Gototop'
+import WorkAreas from '../components/WorkAreas'
+import VideoScroll from '../components/VideoScroll'
 
 const OurWork = () => {
   
@@ -13,7 +15,9 @@ const OurWork = () => {
       <Navbar mode='dark'/>
       <GoToTopButton/>
       <WorkHero/>
-      <Gallery/>
+      <VideoScroll/>
+<WorkAreas/>
+      {/* <Gallery/> */}
       <Footer mode='dark' next='Solutions'/>
       {/* <Camera3d/> */}
     </>

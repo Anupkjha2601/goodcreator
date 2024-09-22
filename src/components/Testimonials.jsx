@@ -41,6 +41,9 @@ export default function Testimonials() {
   }, [isHovered]);
 
   return (
+    <div className='my-16'>
+      <h1 className='text-5xl font-bold mb-4 text-center'>What our valued clients say about us.</h1>
+
     <div 
 
       className="my-16 w-full mx-auto overflow-hidden slider-container"
@@ -61,5 +64,7 @@ export default function Testimonials() {
         ))}
       </div>
     </div>
+    </div>
+
   )
 }
