@@ -5,6 +5,7 @@ import './Register.css'; // Custom CSS
 import { toast } from 'react-toastify';
 import { signInWithPopup } from 'firebase/auth';
 import { auth ,googleProvider } from './firebase'; 
+import Footer from './Footer'; 
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +31,8 @@ const Register = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider); // Use googleProvider
+      const {user } = await signInWithPopup(auth, googleProvider); // Use googleProvider
+      console.log(user);
       const userEmail = result.user.email;
       localStorage.setItem("email", userEmail);
       toast.success("Signed in with Google successfully", { position: "top-center" });
@@ -44,7 +46,9 @@ const Register = () => {
 
 
   return (
-    <div className="register-container">
+    <>
+    <div className="register-page">
+      <div className="register-container">
       <div className="left-section">
         <div className="register-content">
           <a href="/">
@@ -108,8 +112,7 @@ const Register = () => {
                 <label htmlFor="terms">
                   By proceeding, I agree to{' '}
                   <a target="_blank" rel="noopener noreferrer" href="https://goodcreator.co/terms">T&amp;C</a>,{' '}
-                  <a target="_blank" rel="noopener noreferrer" href="https://goodcreator.co/privacy-policy">Privacy Policy of GCC</a>,{' '}
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and{' '}
+                  <a target="_blank" rel="noopener noreferrer" href="https://goodcreator.co/privacy-policy">Privacy Policy of HOM</a>,{' '}
                   <a target="_blank" rel="noopener noreferrer" href="http://www.google.com/policies/privacy">Google Privacy Policy</a>.
                 </label>
               </div>
@@ -117,10 +120,15 @@ const Register = () => {
                 Already have an account? <a href="/login">Login</a>
               </p>
             </form>
+            
           </div>
         </div>
       </div>
+      </div>
     </div>
+    {/* Footer Section */}
+    <Footer mode="light" next="CompleteRegister" />
+    </>
   );
 };
 

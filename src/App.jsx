@@ -22,6 +22,7 @@ import WebDesign from './components/WebDesign';
 import Internet from './components/Internet';
 import CaseHome from './components/casestudy/CaseHome';
 
+
 // Authentication
 import Login from './components/Login';
 import Register from './components/Register';
@@ -67,6 +68,7 @@ function App() {
 
           {/* Case Study */}
           <Route path="case-study" element={<CaseHome />} />
+          
         </Routes>
 
         {/* Toast Notifications */}

@@ -17,13 +17,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-const provider = new GoogleAuthProvider();
+
 
 // Export the instances to be used in your app
-export const auth = getAuth();
-export const googleProvider = provider;
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 export default app;
 

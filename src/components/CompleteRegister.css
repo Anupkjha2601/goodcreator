@@ -1,6 +1,7 @@
 /* Overall container */
-.complete-register-container {
+.Complete-register-page .complete-register-container {
   font-family: 'Montserrat', sans-serif;
+  justify-content: space-between;
   display: flex;
   height: 100vh;
   width: 100%;
@@ -8,9 +9,10 @@
 }
 
 /* Left section (50%) */
-.left-section {
+.Complete-register-page .left-section {
+  width: 50%;
   flex: 1;
-  padding: 40px;
+  padding: 20px;
   background-color: #ddecfe;
   display: flex;
   flex-direction: column;
@@ -23,13 +25,13 @@
 }
 
 /* Logo Styling */
-.complete-register-logo {
+.Complete-register-page .complete-register-logo {
   width: 30%;
   margin-bottom: 10px;
 }
 
 /* Heading Styling */
-.left-section h2 {
+.Complete-register-page .left-section h2 {
   font-size: 2rem;
   margin-bottom: 10px;
   color: #2c3e50;
@@ -37,30 +39,30 @@
 }
 
 /* Text and list Styling */
-.left-section p {
+.Complete-register-page .left-section p {
   font-size: 1.125rem;
   color: #5d6d7e;
   margin-bottom: 15px;
 }
 
-.left-section ul {
+.Complete-register-page .left-section ul {
   font-size: 1.125rem;
   color: #5d6d7e;
   padding-left: 1.5rem;
   margin-bottom: 0;
 }
 
-.left-section ul li {
+.Complete-register-page .left-section ul li {
   margin-bottom: 0.75rem;
   color: #444;
 }
 
-.left-section ul li i {
+.Complete-register-page .left-section ul li i {
   color: #94a5bb;
 }
 
 /* SVG Image Styling - Positioned on the right */
-.complete-register-background-image {
+.Complete-register-page .complete-register-background-image {
   position: absolute;
   right: 0;
   top: 60%;
@@ -72,9 +74,10 @@
 }
 
 /* Right section (50%) */
-.right-section {
+.Complete-register-page .right-section {
+  width: 50%;
   flex: 1;
-  padding: 50px;
+  padding: 20px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -83,13 +86,13 @@
 }
 
 /* Form container */
-.right-section h2 {
+.Complete-register-page .right-section h2 {
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 20px;
 }
 
-form {
+.Complete-register-page form {
   width: 100%;
   max-width: 450px;
   padding: 40px;
@@ -138,34 +141,34 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: rgb(47, 46, 46);
 }
-.phone-number-group {
+.Complete-register-page .phone-number-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px; /* Adjusts space between groups */
 }
 
-.phone-number-wrapper {
+.Complete-register-page .phone-number-wrapper {
   display: flex;
   align-items: center;
 }
 
-.country-code {
+.Complete-register-page .country-code {
   margin-right: 10px;
   font-size: 16px;
   font-weight: bold;
 }
 
-.validate-btn {
+.Complete-register-page .validate-btn {
   margin-top: 10px; /* Adds space between input and button */
   width: 100%; /* Ensure button width is 100% */
 }
 
 
-.input-group input[type="password"] {
+.Complete-register-page .input-group input[type="password"] {
   margin-bottom: 5px; /* Adjust as needed */
 }
 
-.phone-number-group input {
+.Complete-register-page .phone-number-group input {
   flex: 1; /* Take up remaining space */
   padding: 8px;
   border: none;
@@ -175,19 +178,19 @@ button[type="submit"]:hover {
   outline: none;
 }
 
-.phone-number-group input::placeholder {
+.Complete-register-page .phone-number-group input::placeholder {
   color: #aaa;
 }
 
 /* Password requirements */
-.password-requirements {
+.Complete-register-page .password-requirements {
   font-size: 0.875rem;
   color: #5d6d7e;
   margin-bottom: 20px;
 }
 
 /* Error message */
-.error-message {
+.Complete-register-page .error-message {
   color: red;
   font-size: 0.875rem;
   margin-bottom: 20px;
@@ -205,38 +208,38 @@ a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .left-section {
+  .Complete-register-page .left-section {
     padding: 30px;
   }
 
-  .left-section h2 {
+  .Complete-register-page .left-section h2 {
     font-size: 1.625rem;
   }
 
-  .complete-register-logo {
+  .Complete-register-page .complete-register-logo {
     width: 80px;
   }
 
-  .right-section {
+  .Complete-register-page .right-section {
     padding: 30px;
   }
 
-  form {
+  .Complete-register-page form {
     padding: 30px;
   }
 }
 /* Existing styles... */
 
-.password-group {
+.Complete-register-page .password-group {
   display: flex;
   align-items: center;
 }
 
-.password-group input {
+.Complete-register-page .password-group input {
   flex: 1;
 }
 
-.show-password-btn {
+.Complete-register-page .show-password-btn {
   margin-left: 10px;
 }
 

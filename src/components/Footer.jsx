@@ -93,7 +93,8 @@ export default function Footer({ mode, next }) {
               <Link to={'/blogs'} className='my-2 font-semibold'>Blogs</Link>
               <Link to={'/case-study'} className='my-2 font-semibold'>Case Studies</Link>
               {/* <p className='my-2 font-semibold'>Case Studies</p> */}
-              <p className='my-2 font-semibold'>Referel Program</p>
+              <a href="http://localhost/referralPage/" className='my-2 font-semibold'>Referral Program</a>
+
               <p className='my-2 font-semibold'>ER Calculator</p>
             </div>
           </div>

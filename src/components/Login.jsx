@@ -4,24 +4,35 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth'; 
+import Footer from './Footer';
 
 const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
-  const [fullName, setFullName] = useState(""); // State for full name
+  const [fullName, setFullName] = useState(""); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate(); 
-  
-  const auth = getAuth(); // Initialize Firebase auth
-  const provider = new GoogleAuthProvider(); // Initialize Google provider
+  const auth = getAuth(); 
+  const provider = new GoogleAuthProvider(); 
+
+  // Load saved email and password if "Remember Me" was checked
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("savedEmail");
+    const savedPassword = localStorage.getItem("savedPassword");
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+    if (savedPassword) {
+      setPassword(savedPassword);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error state before attempting login
+    setError(null); 
   
-    // Check for valid email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError('Invalid email format.');
@@ -30,19 +41,25 @@ const Login = () => {
     }
   
     try {
-      // Try to sign in with email and password using Firebase auth
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      
-      // If login is successful
       console.log('User logged in successfully:', userCredential.user);
-      const displayName = userCredential.user.displayName || "User"; // Use displayName or default to "User"
+      const displayName = userCredential.user.displayName || "User"; 
       setFullName(displayName);
-      localStorage.setItem("userName", displayName); // Save the user's name in local storage
+      localStorage.setItem("userName", displayName);
+      
+      // Save email and password if "Remember Me" is checked
+      if (rememberMe) {
+        localStorage.setItem("savedEmail", email);
+        localStorage.setItem("savedPassword", password);
+      } else {
+        localStorage.removeItem("savedEmail");
+        localStorage.removeItem("savedPassword");
+      }
+
       toast.success("User logged in successfully", { position: "top-center" });
-      setSuccessMessage(`Welcome, ${displayName}!`); // Set success message
-      navigate("/home"); // Redirect to your home or profile page after successful login
+      setSuccessMessage(`Welcome, ${displayName}!`); 
+      navigate("/home"); 
     } catch (error) {
-      // Handle specific Firebase errors
       switch (error.code) {
         case 'auth/user-not-found':
           setError('No user found with this email.');
@@ -63,18 +80,18 @@ const Login = () => {
     }
   };
 
-  // Handle Google login
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
+      console.log(result);
       const userEmail = result.user.email;
-      const displayName = result.user.displayName || "User"; // Get the display name
-      setEmail(userEmail); // Update email state on Google sign in
-      setFullName(displayName); // Set full name from Google account
-      localStorage.setItem("userName", displayName); // Save user's name in local storage
+      const displayName = result.user.displayName || "User"; 
+      setEmail(userEmail); 
+      setFullName(displayName); 
+      localStorage.setItem("userName", displayName); 
       toast.success("Signed in with Google successfully", { position: "top-center" });
-      setSuccessMessage(`Welcome, ${displayName}!`); // Set success message
-      navigate("/home"); // Redirect to profile page after Google login
+      setSuccessMessage(`Welcome, ${displayName}!`); 
+      navigate("/home"); 
     } catch (error) {
       setError(error.message || "Failed to sign in with Google");
       toast.error(error.message || "Failed to sign in with Google", { position: "bottom-center" });
@@ -83,25 +100,17 @@ const Login = () => {
 
   const handleCheckboxChange = () => {
     setRememberMe(!rememberMe);
-    if (!rememberMe) {
-      localStorage.setItem('userToken', 'your-user-token'); // Handle token saving if required
-    } else {
-      localStorage.removeItem('userToken');
-    }
   };
 
   return (
+    <div className="login-page">
     <div className="login-container">
       <div className="login-content">
-        
-        {/* Success Message */}
         {successMessage && (
           <div className="success-message">
             {successMessage}
           </div>
         )}
-
-        {/* If there's no success message, show the login form */}
         {!successMessage && (
           <>
             <div className="login-left">
@@ -142,7 +151,6 @@ const Login = () => {
                 </button>
                 <div className="divider">or</div>
 
-                {/* Email & Password Login Form */}
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label>Email address</label>
@@ -187,15 +195,17 @@ const Login = () => {
               </div>
             </div>
           </>
+         
         )}
       </div>
-
-      <ToastContainer />
+      <Footer mode="light" next="Register" />
+      </div>
     </div>
   );
 };
 
 export default Login;
+
 
 
 
