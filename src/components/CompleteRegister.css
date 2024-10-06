@@ -73,9 +73,9 @@
   pointer-events: none;
 }
 
-/* Right section (50%) */
+/* Right section (adjusted size) */
 .Complete-register-page .right-section {
-  width: 50%;
+  width: 40%; /* Reduced from 50% to 40% */
   flex: 1;
   padding: 20px;
   background-color: white;
@@ -94,8 +94,8 @@
 
 .Complete-register-page form {
   width: 100%;
-  max-width: 450px;
-  padding: 40px;
+  max-width: 400px; /* Reduced max-width from 450px to 400px */
+  padding: 30px; /* Adjusted padding */
   background-color: #ffff;
   border-radius: 10px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
@@ -108,11 +108,11 @@
 .input-group input[type="password"] {
   border: none;
   border-bottom: 2px solid #ddd;
-  padding: 15px 10px;
+  padding: 10px; /* Reduced padding */
   font-size: 16px;
   outline: none;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 20px; /* Reduced margin */
   background-color: #f9f9f9;
   transition: border-color 0.3s ease;
 }
@@ -130,17 +130,18 @@ button[type="submit"] {
   background-color: black;
   color: white;
   font-size: 16px;
-  padding: 15px;
+  padding: 12px; /* Adjusted padding */
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px; /* Adjusted margin */
   transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
   background-color: rgb(47, 46, 46);
 }
+
 .Complete-register-page .phone-number-group {
   display: flex;
   flex-direction: column;
@@ -162,7 +163,6 @@ button[type="submit"]:hover {
   margin-top: 10px; /* Adds space between input and button */
   width: 100%; /* Ensure button width is 100% */
 }
-
 
 .Complete-register-page .input-group input[type="password"] {
   margin-bottom: 5px; /* Adjust as needed */
@@ -222,14 +222,15 @@ a:hover {
 
   .Complete-register-page .right-section {
     padding: 30px;
+    width: 90%; /* Full width on smaller screens */
   }
 
   .Complete-register-page form {
     padding: 30px;
   }
 }
-/* Existing styles... */
 
+/* Existing styles... */
 .Complete-register-page .password-group {
   display: flex;
   align-items: center;
@@ -242,6 +243,7 @@ a:hover {
 .Complete-register-page .show-password-btn {
   margin-left: 10px;
 }
+
 
 
 

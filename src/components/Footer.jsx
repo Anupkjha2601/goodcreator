@@ -70,7 +70,10 @@ export default function Footer({ mode, next }) {
 
             <h3 className="font-semibold mt-6 mb-2">Whatsapp</h3>
             <p>90XXXXXX78</p>
+            <Link to={'/TermsAndCondi'} className='my-2 font-semibold'>Blogs</Link>
           </div>
+ 
+
 
           <div>
             <h2 className="text-4xl font-semibold mb-6">Subscribe to our newsletter</h2>

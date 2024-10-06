@@ -6,6 +6,8 @@ import { auth } from './firebase';
 import { toast } from "react-toastify"; 
 import { setDoc, doc } from "firebase/firestore";
 import Footer from './Footer';
+import {v4 as uuidv4} from "uuid";
+import Navbar from "./Navbar";
 
 const CompleteRegister = () => {
   const location = useLocation();
@@ -24,11 +26,45 @@ const CompleteRegister = () => {
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+
   useEffect(() => {
     if (location.state?.email) {
       setEmail(location.state.email);
     }
   }, [location.state]);
+
+const submithandle = async (e)=> {
+  e.preventDefault();
+  try {
+    const response = await fetch('https://backend-dashboard-dsw0.onrender.com/api/v1/user/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        _id: "uuid",
+      })
+    });
+    console.log(response);
+    const data = await response.json(
+      {
+        _id: "uuid"
+      }
+    );
+    console.log(data);
+    if (response.ok) {
+      setSuccess(true);
+      console.log('User registered successfully:', data);
+    } else {
+      setError(data.message || 'Registration failed');
+      console.error('Error registering user:', data);
+    }
+  } catch (error) {
+    setError('Error registering user');
+    console.error('Error registering user:', error);
+  }
+
+}
 
   const validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -37,48 +73,48 @@ const CompleteRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     let hasError = false;
-
+  
     // Reset all error states
     setFullNameError("");
     setCompanyNameError("");
     setPhoneNumberError("");
     setPasswordError("");
-
+  
     // Validate Full Name
     if (!/^[A-Za-z\s]+$/.test(fullName)) {
       setFullNameError("Full name should only contain alphabets and spaces.");
       hasError = true;
     }
-
+  
     // Validate Company Name
     if (!/^[A-Za-z\s]+$/.test(companyName)) {
       setCompanyNameError("Company name should only contain alphabets and spaces.");
       hasError = true;
     }
-
+  
     // Validate Phone Number
     const cleanedNumber = phoneNumber.replace(/\D/g, '');
     if (cleanedNumber.length !== 12 || !cleanedNumber.startsWith("91")) {
       setPhoneNumberError("Please enter a valid phone number with country code +91 followed by 10 digits.");
       hasError = true;
     }
-
+  
     // Validate Password
     if (password !== confirmPassword) {
       setPasswordError("Passwords do not match.");
       hasError = true;
     }
-
+  
     if (!validatePassword(password)) {
       setPasswordError("Password must be at least 8 characters long and include 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.");
       hasError = true;
     }
-
+  
     // If there are any errors, return and do not proceed with registration
     if (hasError) return;
-
+  
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("User Registered Successfully!!", {
@@ -100,9 +136,13 @@ const CompleteRegister = () => {
       }
     }
   };
+ 
 
   return (
     <>
+     <div className="navbar-container">
+      <Navbar />
+    </div>
     <div className ="Complete-register-page">
       <div className="complete-register-container">
         {/* Left Section */}
@@ -161,24 +201,20 @@ const CompleteRegister = () => {
             </div>
 
             <div className="input-group">
-              <input
-                type="text"
-                value={phoneNumber}
-                onChange={(e) => {
-                  const value = e.target.value.startsWith("+91") ? e.target.value : "+91" + e.target.value;
-                  setPhoneNumber(value);
-                  const cleanedNumber = value.replace(/\D/g, '');
-                  if (cleanedNumber.length === 12 && cleanedNumber.startsWith("91")) {
-                    setPhoneNumberError(""); // Clear error if valid
-                  } else {
-                    setPhoneNumberError("Please enter a valid phone number with country code +91 followed by 10 digits."); // Set error if invalid
-                  }
-                }} // Ensure +91 stays
-                placeholder="Phone Number"
-                required
-              />
-              {phoneNumberError && <p className="error-message">{phoneNumberError}</p>} {/* Phone Number Error Message */}
-            </div>
+  <input
+    type="text"
+    value={phoneNumber}
+    onChange={(e) => {
+      const value = e.target.value.startsWith("+91") ? e.target.value : "+91" + e.target.value;
+      setPhoneNumber(value);
+      // Removed validation here
+    }} // Ensure +91 stays
+    placeholder="Phone Number"
+    required
+  />
+  {phoneNumberError && <p className="error-message">{phoneNumberError}</p>} {/* Phone Number Error Message */}
+</div>
+
 
             <div className="input-group password-group">
               <input

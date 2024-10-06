@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Login.css'; 
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate  } from 'react-router-dom'; 
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth'; 
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -13,6 +14,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
+
+ 
+
   const navigate = useNavigate(); 
   const auth = getAuth(); 
   const provider = new GoogleAuthProvider(); 
@@ -38,6 +42,7 @@ const Login = () => {
       setError('Invalid email format.');
       toast.error('Invalid email format.', { position: 'bottom-center' });
       return;
+      
     }
   
     try {
@@ -57,8 +62,9 @@ const Login = () => {
       }
 
       toast.success("User logged in successfully", { position: "top-center" });
-      setSuccessMessage(`Welcome, ${displayName}!`); 
-      navigate("/home"); 
+      setSuccessMessage(`Welcome, ${displayName}!`);
+      navigate("/home");
+      
     } catch (error) {
       switch (error.code) {
         case 'auth/user-not-found':
@@ -104,6 +110,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
+       <Navbar mode="light" /> 
     <div className="login-container">
       <div className="login-content">
         {successMessage && (

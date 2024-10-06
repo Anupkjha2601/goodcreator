@@ -20,6 +20,8 @@ import PPC from './components/PPC';
 import SocialMedia from './components/SocialMedia';
 import WebDesign from './components/WebDesign';
 import Internet from './components/Internet';
+import TermsAndConditions from './components/TermsAndConditions';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import CaseHome from './components/casestudy/CaseHome';
 
 
@@ -44,8 +46,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/termsandConditions" element={<TermsAndConditions />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/completeregister" element={<CompleteRegister />} />
-
           {/* Protected Routes */}
           <Route element={<PrivateRoutes />}>
             <Route path="/home" element={<Home />} />
@@ -64,6 +67,7 @@ function App() {
             <Route path="social-media" element={<SocialMedia />} />
             <Route path="web-design" element={<WebDesign />} />
             <Route path="internet" element={<Internet />} />
+            
           </Route>
 
           {/* Case Study */}

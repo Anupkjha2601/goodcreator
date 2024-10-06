@@ -36,6 +36,7 @@ export default function Navbar({ mode }) {
     { name: "Solutions", href: "/solutions" }, // Link to Solutions route
     { name: "Blogs", href: "/blogs" }, // Link to Solutions route
     { name: "Login", href: "/login" },
+    {name: "ReferralPage", href: "http://localhost/referralPage/"}
   ];
 
   return (
